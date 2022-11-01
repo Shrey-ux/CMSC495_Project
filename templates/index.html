@@ -1,0 +1,68 @@
+<!-- This is the index.html webpage/route which is the main access of the overall content, and the 
+new or existing user has to go through this route/webpage first to have access to other routes. -->
+{% extends "helper.html" %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+<!DOCTYPE html>
+
+<!-- Set lang of webpages to standard English. -->
+<html lang="en">
+
+<!-- This is used for the creation of the logout button. -->
+<p><a href={{ url_for("logout") }}> Logout </a></p>  
+<p><a href={{ url_for("update_password") }}> Change Password </a></p> 
+
+<head>
+       <meta charset="utf-8">
+       <meta content="width=device-width, initial-scale=1" name="viewport">
+       <title>So you want to be a hacker?</title>
+       <!-- Referencing the CSS stylesheet  -->
+       <link href="../static/css/mystyle.css" rel="stylesheet" type="text/css">
+   </head>
+  <body>
+    <!-- Displays the current date and time on the webpage -->
+    {% for y in content %}
+    <h3 style="text-align:right"> Current Timestamp: {{ y }}</h3>
+    {% endfor %}
+    <header>
+      <nav>
+        <ul>
+          <a class="button" href="/">Home</a>
+          <a class="button" href="Training">Training</a>
+          <a class="button" href="Certifications">Certifications</a>
+          <a class="button" href="Table">Table</a>
+        </ul>
+      </nav>
+    </header>
+   <!--This is the main header of the index webpage and below is a paragraph introducing the 
+    content -->
+   <div class="header">
+    <h1> 
+      <img src="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2021/07/19/985858-960522-virus-05.jpg"
+      alt="Hacker" width="400" height="400"> 
+    </h1>  
+
+    <h2> Where do I begin learning hacking? </h2>
+     <p> Let's cover a few high level topics to give you a starting place, the rest is up to you. One of the best skills of a hacker is ability to research and never stop. </p>
+     <p>
+        When I became interested in the INFOSEC world, the web had not yet blossomed into what we know and love today. Breaking into the hacking world took alot of knowledge 
+        and learning but where did you obtain that? Hackers are broken up into a few catergories: White Hat Hackers are the good guys and sometimes refered to as ethical hackers. 
+        Black Hat Hackers, the bad ones, are criminals and intend to cause harm to others. Then you have Grey Hat Hackers, they typically did something 'bad' but told the right people 
+        and either helped someone fix something or protected someone from harm. This website is dedicated to the good guys, the White Hats. I will try to give a few resources that 
+        helped me break into the industry and gain some knowledge and experience and not break the bank in the process. College is good for learning foundations of Cybersecurity, 
+        Computer Science and Software Engineering, but you cannot just go to school to be a hacker. Or can you? Certain degrees give you foundational layers that help you in this art 
+        form but until you know how to mold all of those skills together, you are not a hacker. Understanding how a computer works, a network, and prgramming skils are all very beneficial 
+        in their own ways, but when push comes to shove, you need to know how to take each of those pieces and apply them. Please review Training for 
+        some hands on practical experience and Certifications for some good foundational building blocks that allow you to show an employer you 
+        know what you're talking about. If your up to the challenge, visit Hack Me and let's see what you're made of!
+     </p>
+   </div>
+  </body>
+</html>
+
+{% endblock %}

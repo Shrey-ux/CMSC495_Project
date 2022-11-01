@@ -1,0 +1,43 @@
+<!-- This is the login.html webpage for the login form which will allows a 
+new user or existing user to then access the full content of the website. -->
+{% extends "helper.html" %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<title> Login </title>
+</head>   
+<body style="background-color:grey">
+
+<img src="/static/images/code.jpeg" alt="Code" 
+ width="500" height="333">
+ <!--This section will be used for login form-->
+<div class="container">
+    <style>
+        div {
+            background-color: grey;
+        }
+    </style>     
+
+    <form action="#" method="post">
+        <h1> Login </h1>
+        <p><label for="username">Username:</label></p>
+        <p><input style="height:25px;font-size:12pt;" type="text" name="username"></p>
+        <p><label for="password">Password:</label></p>
+        <p><input style="height:25px;font-size:12pt;" type="password" name="password"></p>
+        <p><input style="height:30px;font-size:12pt;" type="submit" class="submit" value="Submit"></p>
+
+    </form>
+    <p><a href={{ url_for("registration") }}>New User - Register Here </a></p>
+
+</div>
+
+
+</body>
+</html>
+{% endblock %}
