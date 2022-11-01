@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@author: Tyler Bokey, Joe Hibbler
+@authors: Tyler Bokey, Joe Hibbler, Shrey Shah
 """
 
 import os
