@@ -1,3 +1,4 @@
+Maryland High School Football Camp 2023 Registration Form
 <!-- This is the register.html webpage for registration form to allow
 new users to create an account to login. -->
 {% extends "helper.html" %}
@@ -10,6 +11,8 @@ new users to create an account to login. -->
 
 <!DOCTYPE html>
 <html>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>  
   <head>
     <title>Maryland High School Football Camp 2023 Registration Form</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -276,14 +279,17 @@ new users to create an account to login. -->
         </div>      
           <fieldset>
             <legend>Events</legend>
-            <div>
-              <input type="checkbox" id="scales" name="QB Camp" checked>
-              <label for="QB Camp">QB Camp</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+              <label class="form-check-label" for="inlineCheckbox1">QB Camp</label>
             </div>
-        
-            <div>
-              <input type="checkbox" id="horns" name="horns">
-              <label for="horns">Horns</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+              <label class="form-check-label" for="inlineCheckbox2">RB/HB Camp</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+              <label class="form-check-label" for="inlineCheckbox3">WR/TE Camp</label>
             </div>
        </fieldset>
         <br/>
