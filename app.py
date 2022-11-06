@@ -37,9 +37,9 @@ def login_form():
     return render_template("login_form.html")
 
 @app.route("/logout_page", methods=["POST", "GET"])
-def logout():
+def logout_page():
     """ Serves as the logout webpage """
-    return render_template('logout.html')
+    return render_template('logout_page.html')
 
 #Creates registration form for a new user to register account
 @app.route("/register_for_camp", methods=["POST", "GET"])

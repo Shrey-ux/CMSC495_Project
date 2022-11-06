@@ -2,9 +2,6 @@
 new or existing user has to go through this route/webpage first to have access to other routes. -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  {% block header %}
-  {% endblock %}
-
   <head>
     <meta charset="utf-8">
     <title>Index</title>
@@ -16,8 +13,7 @@ new or existing user has to go through this route/webpage first to have access t
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   </head>
 
-  <body>
-
+  <header>
   	<!-- DOCUMENTATION NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
    <!-- THEN WE PUT AN UNORDERED LIST INSIDE OF A COLLAPSE DIV -->
@@ -47,7 +43,7 @@ new or existing user has to go through this route/webpage first to have access t
       </li>
       <!-- HERE IS ANOTHER ONE, BUT THE LINK DOESNT "LOOK" ACTIVE -->
       <li class="nav-item active">
-        <a class="nav-link" href="{{url_for("about_us")}}">About</a>
+        <a class="nav-link" href="{{url_for("about_us")}}">About Us</a>
       </li>
     </ul>
     <!-- User Account Stuff -->
@@ -62,14 +58,17 @@ new or existing user has to go through this route/webpage first to have access t
           <a class="dropdown-item" href="{{url_for("login_form")}}">Login</a>
           <!-- ANOTHER DIVISION IN THE DROPDOWN -->
         <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{url_for("event_schedule")}}">Logout</a>
+          <a class="dropdown-item" href="{{url_for("logout_page")}}">Logout</a>
         </div>
     </ul>
   </div>
 </nav>
+</header>
+
 
 {% block body %}
 {% endblock %}
+
 
 
   <!-- Need to have JQuery and Javascript for DropDown Actions to work -->
