@@ -11,69 +11,72 @@ from flask import Flask, flash, render_template, abort, session, request, redire
 app = Flask(__name__)
 app.debug = True
 
-def if_user_registered(current_session_username):
-    """ This function checks to make sure the certain user already registered
-    in the overall new_pass_file """
-    #checks to see if user is already registered by using salt hashing strategy   
-
 #the following routes are all available routes or pages to be loaded as part of the webpage
 #mulltiple pages are part of this website
-@app.route('/')
+@app.route('/', methods=["POST", "GET"]) #
+def index():
+    """ This function is designed as the root page for the WebApplication"""
+    return render_template("home_page.html")
+
+@app.route('/home_page', methods=["POST", "GET"])
 def home_page():
-    """ This function is designed as the root page for all
-    webpages and will post the current date and time on the
-    webpage """
-    if "username" in session:
-        return render_template("index.html")
-    return redirect(url_for("login"))
+    """ DESCRIPTION HERE """
+    return render_template('home_page.html')
+
+@app.route('/sign_up', methods=["POST", "GET"])
+def sign_up():
+    """ This function will be used for designing the login html webpage,
+    so the user can have access to the entirety of the website. """
+    return render_template("sign_up.html")
 
 #creates login form, so the user can have the ability to login
 @app.route('/login_form', methods=["POST", "GET"])
-def login():
+def login_form():
     """ This function will be used for designing the login html webpage,
     so the user can have access to the entirety of the website. """
-    if request.method == "POST":
+    return render_template("login_form.html")
 
-@app.route("/logout")
+@app.route("/logout_page", methods=["POST", "GET"])
 def logout():
-    """ Serves the logout webpage """
-    if "username" in session:
-        session.pop("username", None)
-        flash("You have successfully logged out.")
-    return redirect(url_for('login'))
+    """ Serves as the logout webpage """
+    return render_template('logout.html')
 
 #Creates registration form for a new user to register account
-@app.route("/registration", methods=["POST", "GET"])
-def registration():
+@app.route("/register_for_camp", methods=["POST", "GET"])
+def register_for_camp():
     """ Serving the Registration.html webpage for user to sign up in case
     if they are not logged in or do not have access """
-    if request.method == "POST":
+    return render_template('checkout_form.html')
 
-#This route resembles the Password update form, and the accompanied content
-#follows for the Password update form information.
-@app.route('/Update_Pass', methods=["POST", "GET"])
-def update_password():
+@app.route('/events', methods=["POST", "GET"])
+def events():
+    """ DESCRIPTION HERE """
+    return render_template('events.html')
 
-@app.route('/Page1')
+@app.route('/Page1', methods=["POST", "GET"])
 def page1():
     """ DESCRIPTION HERE """
-    if "username" in session:
-        return render_template('Training.html')
-    return abort(401)
+    return render_template('Training.html')
 
-@app.route('/Page2')
-def page2():
+@app.route('/event_schedule', methods=["POST", "GET"])
+def event_schedule():
     """ DESCRIPTION HERE """
-    if "username" in session:
-        return render_template('Certifications.html')
-    return abort(401)
+    return render_template('event_schedule.html')
 
-@app.route('/Page3')
-def page3():
+@app.route('/about_us', methods=["POST", "GET"])
+def about_us():
     """ DESCRIPTION HERE """
-    if "username" in session:
-        return render_template("Table.html")
-    return abort(401)
+    return render_template('about_us.html')
+
+@app.route('/legal_notice', methods=["POST", "GET"])
+def legal_notice():
+    """ DESCRIPTION HERE """
+    return render_template('legal_notice.html')
+
+@app.route('/privacy_statement', methods=["POST", "GET"])
+def privacy_statement():
+    """ DESCRIPTION HERE """
+    return render_template('privacy_statement.html')
 
 #Starts the executing of program once program enters main.
 if __name__ == "__main__":
