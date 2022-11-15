@@ -6,13 +6,35 @@
 import os
 from os.path import exists
 from string import punctuation
+from logging import FileHandler, WARNING
 from flask import Flask, flash, render_template, abort, session, request, redirect, url_for
+#from wsgiref.simple_server import make_server
 
 app = Flask(__name__)
 app.debug = True
+# Error reporting for prod server, remove the commented out # when deploying
+# F_H = FileHandler('errorlogs.txt')
+# F_H.setLevel(WARNING)
+# app.logger.addHandler(F_H)
+
+# Production server for web app, remove the commented out # when deploying
+# def web_app(environment,response):
+#    status='200 OK'
+#    headers=[('content-type','text/html; charset=utf-8')]
+#    response(status,headers)
+#    return [b'<h2>Hi there, this is WSGI server</h2>']
+
+# with make_server('',5000,web_app) as server:
+#    print('serving on port 5000...\nvisit http://127.0.0.1:5000\nTo exit press ctrl + c')
+#    server.serve_forever()
 
 # the following routes are all available routes or pages to be loaded as part of the webpage
-# mulltiple pages are part of this website
+# multiple pages are part of this website
+
+# Error reporting for the prod server, will print out errors to 'errorlogs.txt'
+# @app.route('/')
+# def error_los():
+#    return 1/0
 
 
 @app.route('/', methods=["POST", "GET"])
