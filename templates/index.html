@@ -55,10 +55,11 @@ new or existing user has to go through this route/webpage first to have access t
         </a>
         <!-- ONE DIVISION IN THE DROPDOWN -->
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{url_for("login_form")}}">Login</a>
+          <a class="dropdown-item" href="{{url_for('login_form')}}">Login</a>
           <!-- ANOTHER DIVISION IN THE DROPDOWN -->
-        <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{url_for("logout_page")}}">Logout</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{url_for('update_password')}}">Update Password</a>
+          <a class="dropdown-item" href="{{url_for('logout_page')}}">Logout</a>
         </div>
     </ul>
   </div>

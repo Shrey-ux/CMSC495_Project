@@ -1,333 +1,391 @@
 <!-- This is the register_for_camp.html webpage for registration form to allow
 new users to create an account to login. -->
-{% extends "index.html" %}
-
+{% extends "index.html"%}
+{% block header %}
+{% endblock %}
 {% block head %}
 
-{% endblock %}
-
-{% block body %}
-
-<!DOCTYPE html>
-<html>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>  
+<!doctype html>
+<html lang="en">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <head>
-    <title>Registration Form</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Checkout Form</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+
+    
+
+<link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+
+
     <style>
-      html, body {
-      min-height: 100%;
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
       }
-      body, div, form, input, select, textarea, label, p { 
-      padding: 0;
-      margin: 0;
-      outline: none;
-      font-family: Roboto, Arial, sans-serif;
-      font-size: 14px;
-      color: #666;
-      line-height: 22px;
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
       }
-      h1 {
-      position: absolute;
-      margin: 0;
-      font-size: 40px;
-      color: #fff;
-      z-index: 2;
- line-height: 83px;
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
       }
-      textarea {
-      width: calc(100% - 12px);
-      padding: 5px;
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
       }
-      .testbox {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: inherit;
-      padding: 20px;
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
       }
-      form {
-      width: 100%;
-      padding: 20px;
-      border-radius: 6px;
-      background: #fff;
-      box-shadow: 0 0 8px #E03A3E; 
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
       }
-      .banner {
-      position: relative;
-      height: 300px;
-      background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.history.com%2Fnews%2Fwho-invented-football&psig=AOvVaw3R6-lb8wJDX5Luj9e5sWJa&ust=1667162277812000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCPDzt8ylhvsCFQAAAAAdAAAAABAh");  
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      }
-      .banner::after {
-      content: "";
-      background-color: rgba(0, 0, 0, 0.2); 
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      }
-      input, select, textarea {
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      }
-      input {
-      width: calc(100% - 10px);
-      padding: 5px;
-      }
-      input[type="date"] {
-      padding: 4px 5px;
-      }
-      textarea {
-      width: calc(100% - 12px);
-      padding: 5px;
-      }
-      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
-      color:  #E03A3E;
-      }
-      .item input:hover, .item select:hover, .item textarea:hover {
-      border: 1px solid transparent;
-      box-shadow: 0 0 3px 0  #E03A3E;
-      color: #E03A3E;
-      }
-      .item {
-      position: relative;
-      margin: 10px 0;
-      }
-      .item span {
-      color: red;
-      }
-      input[type="date"]::-webkit-inner-spin-button {
-      display: none;
-      }
-      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
-      position: absolute;
-      font-size: 20px;
-      color: #E03A3E;
-      }
-      .item i {
-      right: 1%;
-      top: 30px;
-      z-index: 1;
-      }
-      .week {
-      display:flex;
-      justfiy-content:space-between;
-      }
-      .colums {
-      display:flex;
-      justify-content:space-between;
-      flex-direction:row;
-      flex-wrap:wrap;
-      }
-      .colums div {
-      width:48%;
-      }
-      [type="date"]::-webkit-calendar-picker-indicator {
-      right: 1%;
-      z-index: 2;
-      opacity: 0;
-      cursor: pointer;
-      }
-      input[type=radio], input[type=checkbox]  {
-      display: none;
-      }
-      .question span {
-      margin-left: 30px;
-      }
-      .question-answer label {
-      display: block;
-      }
-      .flax {
-      display:flex;
-      justify-content:space-around;
-      }
-      .btn-block {
-      margin-top: 10px;
-      text-align: center;
-      }
-      button {
-      width: 150px;
-      padding: 10px;
-      border: none;
-      border-radius: 5px; 
-      background:  #E03A3E;
-      font-size: 16px;
-      color: #fff;
-      cursor: pointer;
-      }
-      button:hover {
-      background:  #E03A3E;
-      }
-      input[type=radio], input[type=checkbox]  {
-      display: none;
-      }
-      label.radio, label. Checkbox {
-      position: relative;
-      display: inline-block;
-      margin: 5px 20px 15px 0;
-      cursor: pointer;
-      }
-      .question span {
-      margin-left: 30px;
-      }
-      label.radio:before, label.checkbox:before{
-      content: "";
-      position: absolute;
-      left: 0;
-      width: 17px;
-      height: 17px;
-      border-radius: 50%;
-      border: 2px solid #ccc;
-      }
-      label.checkbox:before{ border-radius: 5px}
-      input[type=radio]:checked + label:before, label.radio:hover:before,
-      input[type=checkbox]:checked + label:before, label.chekbox:hover:before {
-      border: 2px solid #E03A3E;
-      }
-      label.radio:after, label.checkbox:after {
-      content: "";
-      position: absolute;
-      top: 6px;
-      left: 5px;
-      width: 8px;
-      height: 4px;
-      border: 3px solid #E03A3E;
-      border-top: none;
-      border-right: none;
-      transform: rotate(-45deg);
-      opacity: 0;
-      }
-      input[type=radio]:checked + label:after, input[type=checkbox]:checked + label:after {
-      opacity: 1;
-      }
-      @media (min-width: 568px) {
-      .name-item, .city-item {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      }
-      .name-item input, .name-item div {
-      width: calc(50% - 20px);
-      }
-      .name-item div input {
-      width:97%;}
-      .name-item div label {
-      display:block;
-      padding-bottom:5px;
-      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
       }
     </style>
-  </head>
-  <body>
-    <div class="testbox">
-      <form>
-        <div class="banner">
-          <h1> 
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.history.com%2Fnews%2Fwho-invented-football&psig=AOvVaw3R6-lb8wJDX5Luj9e5sWJa&ust=1667162277812000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCPDzt8ylhvsCFQAAAAAdAAAAABAh"
-            alt="" width="400" height="200">
-          </h1>
-        </div>
-        <br/>
-        <fieldset>
-          <legend>Athlete Information</legend>
-          <div class="colums">
-          <div class="item">
-            <label for="fname"> First Name<span>*</span></label>
-            <input id="fname" type="text" name="fname" />
-        </div>
-            <div class="item">
-            <label for="lname"> Last Name<span>*</span></label>
-            <input id="lname" type="text" name="fname" />
-          </div>
-          <div class="item">
-            <label for="address1">Address 1<span>*</span></label>
-            <input id="address1" type="text"   name="address1" />
-          </div>
-          <div class="item">
-            <label for="address2">Address 2<span>*</span></label>
-            <input id="address2" type="text"   name="address2" />
-          </div>
-          <div class="item">
-            <label for="city">City<span>*</span></label>
-            <input id="city" type="text"   name="city" />
-          </div>
-          <div class="item">
-            <label for="state">State<span>*</span></label>
-            <input id="state" type="text"   name="state" />
-          </div>
-          <div class="item">
-            <label for="zip">Zip<span>*</span></label>
-            <input id="zip" type="text"   name="zip" />
-          </div>
-          <div class="item">
-            <label for="phone">Phone<span>*</span></label>
-            <input id="phone" type="tel"   name="phone" />
-          </div>  
-          <div class="item">
-            <label for="bdate">Birth Date <span>*</span></label>
-            <input id="bdate" type="date" name="bdate" />
-            <i class="fa fa-calendar" aria-hidden="true"></i>
-          </div> 
-        </div>      
-          <fieldset>
-            <legend>Events</legend>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-              <label class="form-check-label" for="inlineCheckbox1">QB Camp</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">RB/HB Camp</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-              <label class="form-check-label" for="inlineCheckbox3">WR/TE Camp</label>
-            </div>
-       </fieldset>
-        <br/>
-        <fieldset>
-          <legend>Emergency Contact</legend>
-           <div class="colums">
-          <div class="item">
-            <label for="fname"> First Name<span>*</span></label>
-            <input id="fname" type="text" name="fname" />
-          </div>
-          <div class="item">
-            <label for="lname"> Last Name<span>*</span></label>
-            <input id="lname" type="text" name="lname" />
-          </div>
-          <div class="item">
-            <label for="phone">Phone<span>*</span></label>
-            <input id="phone" type="tel"   name="phone" />
-          </div>
-            <div class="item">
-                <p>Relationship to Athlete</p>
-               <select>
-                 <option selected value="" disabled selected></option>
-                 <option value="Mother">Mother</option>
-                 <option value="Father">Father</option>
-                 <option value="Guardian">Guardian</option>
-                <option value="Grandparent">Grandparent</option>
-                <option value="Other">Other</option>
-               </select>
-             </div>
-            </div>
-          </div>
-                </fieldset>
-        <div class="btn-block">
-          <button type="submit" href="/">Submit</button>
-        </div>
-        </br>
-      </form>
-    </div>
-  </body>
-</html>
 
-{% endblock %}
+    
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+  {% endblock %}
+  {% block body %}
+  <body class="bg-light">
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="\static\images\maryland_terrapins_football.png" alt="" width="72" height="57">
+      <h2>Registration Form</h2>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron">
+    <!--Athlete Info  -->
+    <div class="col-md-7 col-lg-8">
+      <h4 class="mb-3">Athlete Information</h4>
+      <form class="needs-validation" novalidate>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label for="firstName" class="form-label">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="lastName" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="username" class="form-label">Username</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">@</span>
+              <input type="text" class="form-control" id="username" placeholder="Username" required>
+            <div class="invalid-feedback">
+                Your username is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback">
+              Please enter a valid email address.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="phone_number" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="address" placeholder="(XXX)-XXX-XXXX" required>
+            <div class="invalid-feedback">
+              Please enter valid phone number.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="bdate" class="form-label">Birthday</label>
+            <input type="text" class="form-control" id="address" placeholder="mm/dd/yyyy" required>
+            <i class="fas fa-calendar-alt"></i>
+            <div class="invalid-feedback">
+              Please enter valid date in the mm/dd/yyyy format.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+            <div class="invalid-feedback">
+              Please enter your address.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+          </div>
+
+          <div class="col-md-5">
+            <label for="city" class="form-label">State</label>
+            <input type="text" class="form-control" id="city" placeholder="City">
+            <div class="invalid-feedback">
+              Please select a valid city name.
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <label for="state" class="form-label">State</label>
+            <select class="form-select" id="state" required>
+              <option value="">Choose...</option>
+              <option>Alabama</option>
+              <option>Alaska</option>
+              <option>Arizona</option>
+              <option>Arkansas</option>
+              <option>California</option>
+              <option>Colorado</option>
+              <option>Connecticut</option>
+              <option>Delaware</option>
+              <option>District of Columbia</option>
+              <option>Florida</option>
+              <option>Georgia</option>
+              <option>Hawaii</option>
+              <option>Idaho</option>
+              <option>Illinois</option>
+              <option>Indiana</option>
+              <option>Iowa</option>
+              <option>Kansas</option>
+              <option>Kentucky</option>
+              <option>Louisiana</option>
+              <option>Maine</option>
+              <option>Maryland</option>
+              <option>Massachusetts</option>
+              <option>Michigan</option>
+              <option>Minnesota</option>
+              <option>Mississippi</option>
+              <option>Missouri</option>
+              <option>Montana</option>
+              <option>Nebraska</option>
+              <option>Nevada</option>
+              <option>New Hampshire</option>
+              <option>New Jersey</option>
+              <option>New Mexico</option>
+              <option>New York</option>
+              <option>North Carolina</option>
+              <option>North Dakota</option>
+              <option>Ohio</option>
+              <option>Oklahoma</option>
+              <option>Oregon</option>
+              <option>Pennsylvania</option>
+              <option>Rhode Island</option>
+              <option>South Carolina</option>
+              <option>South Dakota</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Utah</option>
+              <option>Vermont</option>
+              <option>Virginia</option>
+              <option>Washington</option>
+              <option>West Virginia</option>
+              <option>Wisconsin</option>
+              <option>Wyoming</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid state.
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="zip" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="zip" placeholder="" required>
+            <div class="invalid-feedback">
+              Zip code required.
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-4">
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Events</h4>
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="save-info">
+          <label class="form-check-label" for="save-info">Halfback/Running Back</label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+
+                <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="same-address">
+          <label class="form-check-label" for="save-info">Quarterback </label>
+        </div>
+      </div>
+    </div>
+
+        <hr class="my-4">
+
+    <!-- Emergency Contact Info -->
+    <div class="col-md-7 col-lg-8">
+      <h4 class="mb-3">Emergency Contact</h4>
+      <form class="needs-validation" novalidate>
+        <div class="row g-3">  
+    <h4 class="mb-3"></h4>
+
+        <div class="col-sm-6">
+          <label for="ec_firstName" class="form-label">First name</label>
+          <input type="text" class="form-control" id="ec_firstName" placeholder="First name" value="" required>
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <label for="ec_lastName" class="form-label">Last name</label>
+          <input type="text" class="form-control" id="ec_lastName" placeholder="Last name" value="" required>
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="ec_phone_number" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" id="ec_phone_number" placeholder="(XXX)-XXX-XXXX" required>
+          <div class="invalid-feedback">
+            Please enter valid phone number.
+          </div>
+        </div>
+
+        <div class="item">
+          <p>Relationship to Athlete</p>
+         <select>
+           <option selected value="" disabled selected></option>
+           <option value="Mother">Mother</option>
+           <option value="Father">Father</option>
+           <option value="Guardian">Guardian</option>
+          <option value="Grandparent">Grandparent</option>
+          <option value="Other">Other</option>
+         </select>
+       </div>
+      </div>
+    </div>
+    
+      <hr class="my-4">
+
+
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  </main>
+</div>
+
+
+    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+      <script src="form-validation.js"></script>
+  </body>
+  {% endblock %}
