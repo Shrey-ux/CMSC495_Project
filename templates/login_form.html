@@ -1,4 +1,4 @@
-{% extends "index.html"%} {% block body %}
+{% extends "index.html"%} {% block content %}
 
 <header class="bg-light py-5">
   <div class="container px-2 px-lg-5 my-5">
@@ -34,7 +34,7 @@
     <button type="submit" class="btn btn-default" name="button">Submit</button>
     <button
       type="sign_up"
-      class="btn btn-default"
+      class="btn btn-primary"
       href="{{url_for('sign_up')}}"
       name="button"
     >

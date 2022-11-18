@@ -3,38 +3,16 @@
 @authors: Tyler B, Joe H, Shrey S
 """
 
+
 import os
 from os.path import exists
 from string import punctuation
 from logging import FileHandler, WARNING
 from flask import Flask, flash, render_template, abort, session, request, redirect, url_for
-#from wsgiref.simple_server import make_server
+from wsgiref.simple_server import make_server
 
 app = Flask(__name__)
 app.debug = True
-# Error reporting for prod server, remove the commented out # when deploying
-# F_H = FileHandler('errorlogs.txt')
-# F_H.setLevel(WARNING)
-# app.logger.addHandler(F_H)
-
-# Production server for web app, remove the commented out # when deploying
-# def web_app(environment,response):
-#    status='200 OK'
-#    headers=[('content-type','text/html; charset=utf-8')]
-#    response(status,headers)
-#    return [b'<h2>This is WSGI server</h2>']
-
-# with make_server('',5000,web_app) as server:
-#    print('serving on port 5000...\nvisit http://127.0.0.1:5000\nTo exit press ctrl + c')
-#    server.serve_forever()
-
-# the following routes are all available routes or pages to be loaded as part of the webpage
-# multiple pages are part of this website
-
-# Error reporting for the prod server, will print out errors to 'errorlogs.txt'
-# @app.route('/')
-# def error_los():
-#    return 1/0
 
 
 @app.route('/', methods=["POST", "GET"])
@@ -44,7 +22,7 @@ def index():
     Returns:
         _type_: _description_
     """
-    return render_template("home_page.html")
+    return render_template('home_page.html')
 
 
 @app.route('/home_page', methods=["POST", "GET"])
@@ -56,6 +34,8 @@ def home_page():
     """
     return render_template('home_page.html')
 
+# Creates sign-up form for a new user to register account
+
 
 @app.route('/sign_up', methods=["POST", "GET"])
 def sign_up():
@@ -65,7 +45,7 @@ def sign_up():
     Returns:
         _type_: _description_
     """
-    return render_template("sign_up.html")
+    return render_template('sign_up.html')
 
 # creates login form, so the user can have the ability to login
 
@@ -100,8 +80,6 @@ def update_password():
     """
     return render_template('update_password.html')
 
-# Creates registration form for a new user to register account
-
 
 @app.route("/register_for_camp", methods=["POST", "GET"])
 def register_for_camp():
@@ -111,7 +89,7 @@ def register_for_camp():
     Returns:
         _type_: _description_
     """
-    return render_template('checkout_form.html')
+    return render_template('register_for_camp.html')
 
 
 @app.route('/events', methods=["POST", "GET"])
