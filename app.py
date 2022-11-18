@@ -113,7 +113,7 @@ def staff_login():
 
 
 @app.route('/staff_dashboard', methods=["POST", "GET"])
-def staff_dashboard1():
+def staff_dashboard():
     """_summary_
 
     Returns:
