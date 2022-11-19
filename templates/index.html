@@ -74,17 +74,14 @@ new or existing user has to go through this route/webpage first to have access t
 </style>
 
 
-<!-- THIS IS A TEST -->
+<!-- NAVBAR -->
   </head>
   <body>
-    <header class="p-3 text-bg-dark">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-        </a>
+    <nav class="navbar sticky-top navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li><a class="nav-link px-2 text-white" href="{{ url_for('home_page') }}">Home</a></li>
           <li><a class="nav-link px-2 text-white" href={{ url_for('register_for_camp') }}>Registration</a></li>
           <li><a class="nav-link px-2 text-white" href={{ url_for('events') }}>Events</a></li>
@@ -93,14 +90,14 @@ new or existing user has to go through this route/webpage first to have access t
           <li><a class="nav-link px-2 text-white" href={{ url_for('staff_dashboard') }}>STAFF</a></li>
         </ul>
 
-
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2" data-toggle="button" aria-pressed="true" href={{ url_for('login_form') }}>Login</button>
-          <button type="button" class="btn btn-warning" data-toggle="button" aria-pressed="true" href={{ url_for('sign_up')}}>Sign-up</button>
+          <a class="btn btn-outline-light me-2" href={{ url_for('login_form') }} data-toggle="button" aria-pressed="true">Login</a>
+          <a class="btn btn-warning" href={{ url_for('sign_up') }} data-toggle="button" aria-pressed="true">Sign-up</a>
         </div>
       </div>
     </div>
-  </header>
+  </nav>
+
     <main>
       {% block content %}{%endblock%}
     <footer class="my-5 pt-5 text-muted text-center text-small">
