@@ -100,28 +100,28 @@ new users to create an account to login. -->
             <label for="state" class="form-label">State</label>
             <select class="form-select" id="state" required>
               <option value="">Choose...</option>
-              <option>Alabama</option>
-              <option>Alaska</option>
-              <option>Arizona</option>
-              <option>Arkansas</option>
-              <option>California</option>
-              <option>Colorado</option>
-              <option>Connecticut</option>
-              <option>Delaware</option>
-              <option>District of Columbia</option>
-              <option>Florida</option>
-              <option>Georgia</option>
-              <option>Hawaii</option>
-              <option>Idaho</option>
-              <option>Illinois</option>
-              <option>Indiana</option>
-              <option>Iowa</option>
-              <option>Kansas</option>
-              <option>Kentucky</option>
-              <option>Louisiana</option>
-              <option>Maine</option>
-              <option>Maryland</option>
-              <option>Massachusetts</option>
+              <option value="">Alabama</option>
+              <option value="">Alaska</option>
+              <option value="">Arizona</option>
+              <option value="">Arkansas</option>
+              <option value="">California</option>
+              <option value="">Colorado</option>
+              <option value="">Connecticut</option>
+              <option value="">Delaware</option>
+              <option value="">District of Columbia</option>
+              <option value="">Florida</option>
+              <option value="">Georgia</option>
+              <option value="">Hawaii</option>
+              <option value="">Idaho</option>
+              <option value="">Illinois</option>
+              <option value="">Indiana</option>
+              <option value="">Iowa</option>
+              <option value="">Kansas</option>
+              <option value="">Kentucky</option>
+              <option value="">Louisiana</option>
+              <option value="">Maine</option>
+              <option value="">Maryland</option>
+              <option value="">Massachusetts</option>
               <option>Michigan</option>
               <option>Minnesota</option>
               <option>Mississippi</option>
@@ -286,10 +286,18 @@ new users to create an account to login. -->
     </div>
   </div>
 
+</br>
+      <div class="d-grid gap-2 col-6 mx-auto">
+      <button type="submit" class="btn btn-primary btn-lg" name="button"  href={{url_for('home_page')}}>Submit</button>
+      </div>
 
 
-      <button type="submit" class="btn btn-primary" name="button"  href="{{url_for('home_page')}}">Submit</button>
-      </button>
+      <!-- Successful registration modal-->
+      <div id="successful-registration" class="modal hide fade in" aria-hidden="true">
+        <div class="modal-header">
+            <label id="responsestatus"></label>
+        </div>
+    </div>
         </form>
       </div>
     </div>

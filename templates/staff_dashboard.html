@@ -1,14 +1,6 @@
 {% extends "index.html"%} {% block content %}
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="" />
-  <meta
-    name="author"
-    content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
-  />
-  <meta name="generator" content="Hugo 0.104.2" />
-  <title>Staff Dashboard Template</title>
+  <title>Staff Dashboard</title>
 
   <!-- CSS only -->
   <link
@@ -25,211 +17,54 @@
     crossorigin="anonymous"
   ></script>
 
-  <!-- Favicons -->
-  <link
-    rel="apple-touch-icon"
-    href="/docs/5.2/assets/img/favicons/apple-touch-icon.png"
-    sizes="180x180"
-  />
-  <link
-    rel="icon"
-    href="/docs/5.2/assets/img/favicons/favicon-32x32.png"
-    sizes="32x32"
-    type="image/png"
-  />
-  <link
-    rel="icon"
-    href="/docs/5.2/assets/img/favicons/favicon-16x16.png"
-    sizes="16x16"
-    type="image/png"
-  />
-  <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json" />
-  <link
-    rel="mask-icon"
-    href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg"
-    color="#712cf9"
-  />
-  <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico" />
-  <meta name="theme-color" content="#712cf9" />
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    .b-example-divider {
-      height: 3rem;
-      background-color: rgba(0, 0, 0, 0.1);
-      border: solid rgba(0, 0, 0, 0.15);
-      border-width: 1px 0;
-      box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
-        inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
-    }
-
-    .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
-    }
-
-    .bi {
-      vertical-align: -0.125em;
-      fill: currentColor;
-    }
-
-    .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
-    }
-
-    .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
-  </style>
-
   <!-- Custom styles for this template -->
   <link href="dashboard.css" rel="stylesheet" />
 </head>
 <body>
-  <header
-    class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
-  >
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#"
-      >Company name</a
-    >
-    <button
-      class="navbar-toggler position-absolute d-md-none collapsed"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#sidebarMenu"
-      aria-controls="sidebarMenu"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <input
-      class="form-control form-control-dark w-100 rounded-0 border-0"
-      type="text"
-      placeholder="Search"
-      aria-label="Search"
-    />
-    <div class="navbar-nav">
-      <div class="nav-item text-nowrap">
-        <a class="nav-link px-3" href="#">Sign out</a>
-      </div>
-    </div>
-  </header>
+      <main>
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+        >
+          <h1 class="h2">Staff Dashboard</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group sticky-top me-2">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control w-auto me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
 
-  <div class="bd-example-snippet bd-code-snippet">
-    <div class="bd-example">
-      <nav>
-        <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-          <button
-            class="nav-link active"
-            id="nav-home-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#nav-home"
-            type="button"
-            role="tab"
-            aria-controls="nav-home"
-            aria-selected="true"
-          >
-            Home
-          </button>
-          <button
-            class="nav-link"
-            id="nav-profile-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#nav-profile"
-            type="button"
-            role="tab"
-            aria-controls="nav-profile"
-            aria-selected="false"
-          >
-            Profile
-          </button>
-          <button
-            class="nav-link"
-            id="nav-contact-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#nav-contact"
-            type="button"
-            role="tab"
-            aria-controls="nav-contact"
-            aria-selected="false"
-          >
-            Contact
-          </button>
+        <div class="table-responsive">
+          <table class="table table-sm table-hover">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Address</th>
+                <th scope="col">Address2</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip</th>
+              </tr>
+            </thead>
+          <tbody>
+            </tbody>
+          </table>
         </div>
-      </nav>
-      <div class="tab-content" id="nav-tabContent">
-        <div
-          class="tab-pane fade show active"
-          id="nav-home"
-          role="tabpanel"
-          aria-labelledby="nav-home-tab"
-        >
-          <p>
-            This is some placeholder content the
-            <strong>Home tab's</strong> associated content. Clicking another tab
-            will toggle the visibility of this one for the next. The tab
-            JavaScript swaps classes to control the content visibility and
-            styling. You can use it with tabs, pills, and any other
-            <code>.nav</code>-powered navigation.
-          </p>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="nav-profile"
-          role="tabpanel"
-          aria-labelledby="nav-profile-tab"
-        >
-          <p>
-            This is some placeholder content the
-            <strong>Profile tab's</strong> associated content. Clicking another
-            tab will toggle the visibility of this one for the next. The tab
-            JavaScript swaps classes to control the content visibility and
-            styling. You can use it with tabs, pills, and any other
-            <code>.nav</code>-powered navigation.
-          </p>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="nav-contact"
-          role="tabpanel"
-          aria-labelledby="nav-contact-tab"
-        >
-          <p>
-            This is some placeholder content the
-            <strong>Contact tab's</strong> associated content. Clicking another
-            tab will toggle the visibility of this one for the next. The tab
-            JavaScript swaps classes to control the content visibility and
-            styling. You can use it with tabs, pills, and any other
-            <code>.nav</code>-powered navigation.
-          </p>
-        </div>
-      </div>
+      </main>
     </div>
   </div>
-  {% endblock %}
 </body>
+{% endblock %}

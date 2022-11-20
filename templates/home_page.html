@@ -158,9 +158,11 @@
           <p class="col-md-8 fs-4">
             We improve performance levels of athletes playing at every level of the game. High school instruction covers advanced position-specific drills and scenarios. All summer showcase attendees receive a full evaluation, which includes crucial information on the athlete’s skills, techniques, as well as, how to get better.
           </p>
-          <button class="btn btn-outline-danger btn-lg" type="button">
-            Register Now
-          </button>
+          <!-- {X if current_user.is_authenticated %} --> 
+         <a class="btn btn-outline-danger btn-lg" href={{ url_for('register_for_camp') }} data-toggle="button" aria-pressed="true">Register Now</a>
+         <!-- {X else %} --> 
+          <a class="btn btn-outline-danger btn-lg" href={{ url_for('login_form') }} data-toggle="button" aria-pressed="true">Register Now</a>
+          <!-- {X endif %} --> 
         </div>
       </div>
 
@@ -177,24 +179,24 @@
             <div class="accordion-item">
               <h4 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  What does camp include?
+                  Why should I Attend?
                 </button>
               </h4>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  <strong>Why not?</strong> We focuses on the fundamentals and not just the plays or conditioning of athletes. We use a program that allows for each athlete to compete to their absolute athletic potential while providing a safe environment to insure maximum progress and safety.
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h4 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  How much does camp cost?
+                  Who will be coaching the campers?
                 </button>
               </h4>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  <strong>Football Veterans!</strong> Local NFL and college coaches plus some various players as well will coach your kids. Your camper has the opportunity to be coached by some great minds in football.
                 </div>
               </div>
             </div>
@@ -206,7 +208,55 @@
               </h4>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  <strong>SECU STADIUM & JONES-HILL HOUSE - COLLEGE PARK, MD.</strong> SECU Stadium, nestled in the corner of the University of Maryland's campus, has been home to national championship football and men's and women's lacrosse teams, and to more than 50 ACC track and field champions. Jones-Hill House is the new home of Terrapin football. The state-of-the-art facility provides upgrades in all areas that will aid in creating the consummate student-athlete experience. Jones-Hill House put UMD front and center as having one of the top football facilities in the entire country.
+                </div>
+              </div> 
+            </div>
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  As a parent or guardian, can I come and watch the practices during camp?
+                </button>
+              </h4>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>YES</strong>, we actually encourage parents/guardians to watch the practices during the week, especially for the Super Bowl on the last day of camp where a culmination of the weekend’s work comes together for a fun time for campers, coaches, and parents. Everyone who comes to watch during the week must check in at our security tent to get an O-D field pass.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  Is the Football Camp Geared Toward One Position?
+                </button>
+              </h4>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>NO!</strong> We pride ourself on offering the most in-depth instruction in all positions. You, the camper, decide what position you would like to learn and our hand-selected coaching staff will take over from there.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  Is This A Camp For Football Veterans Only?
+                </button>
+              </h4>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Absolutely Not!</strong> We work with campers of all age and skill levels. While this camp is specifically geared towards incoming Freshman to Seniors, it is appropriate regardless of previous football knowledge. We have a very skilled and knowledgeable staff where each member on the coaching staff is hand-selected to cater to the needs of our campers. First-time campers will leave with better knowledge and take the grassroots skills of football home with them. Football veterans will appreciate our challenging curriculum and the one-on-one drills that will take place with the pros. No matter the situation, our camp guarantees improvement.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  How much does camp cost?
+                </button>
+              </h4>
+              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                 </div>
               </div>
             </div>
