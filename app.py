@@ -9,6 +9,7 @@ from os.path import exists
 from string import punctuation
 from logging import FileHandler, WARNING
 from flask import Flask, flash, render_template, abort, session, request, redirect, url_for
+from werkzeug.security import generate_password_hash, check_password_hash
 from wsgiref.simple_server import make_server
 
 app = Flask(__name__)
@@ -50,8 +51,8 @@ def sign_up():
 # creates login form, so the user can have the ability to login
 
 
-@app.route('/login_form', methods=["POST", "GET"])
-def login_form():
+@app.route('/login', methods=["POST", "GET"])
+def login():
     """This function will be used for designing the login html webpage,
     so the user can have access to the entirety of the website.
 
@@ -61,8 +62,8 @@ def login_form():
     return render_template("login_form.html")
 
 
-@app.route("/logout_page", methods=["POST", "GET"])
-def logout_page():
+@app.route("/logout", methods=["POST", "GET"])
+def logout():
     """Serves as the logout webpage
 
     Returns:

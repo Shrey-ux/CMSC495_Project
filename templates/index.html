@@ -49,9 +49,9 @@ new or existing user has to go through this route/webpage first to have access t
 
         <div class="text-end">
          <!-- {X if current_user.is_authenticated %} --> 
-         <a class="btn btn-warning" href={{ url_for('logout_page') }} data-toggle="button" aria-pressed="true">Logout</a>
+         <a class="btn btn-warning" href={{ url_for('logout') }} data-toggle="button" aria-pressed="true">Logout</a>
          <!-- {X else %} --> 
-          <a class="btn btn-outline-light me-2" href={{ url_for('login_form') }} data-toggle="button" aria-pressed="true">Login</a>
+          <a class="btn btn-outline-light me-2" href={{ url_for('login') }} data-toggle="button" aria-pressed="true">Login</a>
           <a class="btn btn-warning" href={{ url_for('sign_up') }} data-toggle="button" aria-pressed="true">Sign-up</a>
           <!-- {X endif %} --> 
         </div>
