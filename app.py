@@ -4,16 +4,23 @@
 """
 
 
+from models.py import .db
 import os
 from os.path import exists
 from string import punctuation
 from logging import FileHandler, WARNING
 from flask import Flask, flash, render_template, abort, session, request, redirect, url_for
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, EqualTo
+from wtforms import ValidationError
+from flask_wtf.file import FileField, FileAllowed
 from werkzeug.security import generate_password_hash, check_password_hash
 from wsgiref.simple_server import make_server
 
+
 app = Flask(__name__)
-app.debug = True
+app.debug = True3
 
 
 @app.route('/', methods=["POST", "GET"])
