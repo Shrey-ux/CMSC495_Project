@@ -20,7 +20,7 @@ from wsgiref.simple_server import make_server
 
 
 app = Flask(__name__)
-app.debug = True3
+app.debug = True
 
 
 @app.route('/', methods=["POST", "GET"])
