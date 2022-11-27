@@ -4,7 +4,6 @@
 """
 
 
-from models.py import .db
 import os
 from os.path import exists
 from string import punctuation
