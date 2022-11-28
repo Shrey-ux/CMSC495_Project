@@ -23,7 +23,8 @@ class SignUpForm(FlaskForm):
 username = StringField('Username', validators=[DataRequired()])
 password = PasswordField('Password', validators=[DataRequired(), EqualTo(
     'pass_confirm', message='Passwords Must Match!')])
-pass_confirm = PasswordField('Confirm password', validators=[DataRequired()])
+password_confirm = PasswordField(
+    'Confirm password', validators=[DataRequired()])
 submit = SubmitField('Sign-Up!')
 
 
@@ -61,8 +62,22 @@ class RegisterForCampForm(FlaskForm):
   """
 
 
-email = StringField('Email', validators=[DataRequired(), Email()])
+firstname = StringField('Email', validators=[DataRequired()])
+lastname = StringField('Username', validators=[DataRequired()])
 username = StringField('Username', validators=[DataRequired()])
+email = StringField('Email', validators=[DataRequired(), Email()])
+phone_number = StringField('Username', validators=[DataRequired()])
+birthdate = StringField('Username', validators=[DataRequired()])
+address = StringField('Username', validators=[DataRequired()])
+address2 = StringField('Username', validators=[DataRequired()])
+city = StringField('Username', validators=[DataRequired()])
+state = StringField('Username', validators=[DataRequired()])
+zip = StringField('Username', validators=[DataRequired()])
+event = StringField('Username', validators=[DataRequired()])
+ec_firstname = StringField('Email', validators=[DataRequired()])
+ec_lastname = StringField('Username', validators=[DataRequired()])
+phone_number = StringField('Username', validators=[DataRequired()])
+relationship_to_athlete = StringField('Username', validators=[DataRequired()])
 
 
 submit = SubmitField('Register!')
