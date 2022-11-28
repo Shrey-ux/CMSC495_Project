@@ -31,6 +31,14 @@ submit = SubmitField('Sign-Up!')
 def validate_username(self, field):
     # Check if not None for that username!
     # print(field)
+        """_summary_
+
+   Args:
+       FlaskForm (_type_): _description_
+
+   Raises:
+       ValidationError: _description_
+   """
     if User.query.filter_by(username=field.data).first():
         raise ValidationError('Sorry, that username is taken!')
 
@@ -62,34 +70,56 @@ class RegisterForCampForm(FlaskForm):
   """
 
 
-firstname = StringField('Email', validators=[DataRequired()])
-lastname = StringField('Username', validators=[DataRequired()])
+firstname = StringField('First Name', validators=[DataRequired()])
+lastname = StringField('Last Name', validators=[DataRequired()])
 username = StringField('Username', validators=[DataRequired()])
 email = StringField('Email', validators=[DataRequired(), Email()])
-phone_number = StringField('Username', validators=[DataRequired()])
-birthdate = StringField('Username', validators=[DataRequired()])
-address = StringField('Username', validators=[DataRequired()])
-address2 = StringField('Username', validators=[DataRequired()])
-city = StringField('Username', validators=[DataRequired()])
-state = StringField('Username', validators=[DataRequired()])
-zip = StringField('Username', validators=[DataRequired()])
-event = StringField('Username', validators=[DataRequired()])
-ec_firstname = StringField('Email', validators=[DataRequired()])
-ec_lastname = StringField('Username', validators=[DataRequired()])
-phone_number = StringField('Username', validators=[DataRequired()])
-relationship_to_athlete = StringField('Username', validators=[DataRequired()])
+phone_number = StringField('Phone Number', validators=[DataRequired()])
+birthdate = StringField('Birthdate', validators=[DataRequired()])
+address = StringField('Address', validators=[DataRequired()])
+address2 = StringField('Address 2', validators=[DataRequired()])
+city = StringField('City', validators=[DataRequired()])
+state = StringField('State', validators=[DataRequired()])
+zip = StringField('Zip', validators=[DataRequired()])
+event = StringField('Event', validators=[DataRequired()])
+ec_firstname = StringField('First Name', validators=[DataRequired()])
+ec_lastname = StringField('Last Name', validators=[DataRequired()])
+phone_number = StringField('Phone Number', validators=[DataRequired()])
+relationship_to_athlete = StringField(
+    'Relationship to Athlete', validators=[DataRequired()])
 
 
 submit = SubmitField('Register!')
 
 
 def validate_username(self, field):
+    """_summary_
+
+     Args:
+         FlaskForm (_type_): _description_
+
+     Raises:
+         ValidationError: _description_
+     """
     # Check if not None for that username!
     if User.query.filter_by(username=field.data).first():
         raise ValidationError('User has already registered for camp.')
 
 
 class UpdateUserPassword(FlaskForm):
+
+    """ DOCSTRING """
+
+
+username = StringField('Username', validators=[DataRequired()])
+password = PasswordField('Password', validators=[DataRequired(), EqualTo(
+    'pass_confirm', message='Passwords Must Match!')])
+pass_confirm = PasswordField(
+    'Confirm password', validators=[DataRequired()])
+submit = SubmitField('Update Password')
+
+
+def validate_username(self, field):
     """_summary_
 
     Args:
@@ -98,15 +128,6 @@ class UpdateUserPassword(FlaskForm):
     Raises:
         ValidationError: _description_
     """
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired(), EqualTo(
-        'pass_confirm', message='Passwords Must Match!')])
-    pass_confirm = PasswordField(
-        'Confirm password', validators=[DataRequired()])
-    submit = SubmitField('Update Password')
-
-
-def validate_username(self, field):
     # Check if not None for that username!
     if User.query.filter_by(username=field.data).first():
         raise ValidationError('Sorry, that username is taken!')
