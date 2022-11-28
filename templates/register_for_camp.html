@@ -28,11 +28,11 @@ new users to create an account to login. -->
     <!--Athlete Info  -->
     <div class="">
       <h4 class="mb-3">Athlete Information</h4>
-      <form class="needs-validation" novalidate>
+      <form class="needs-validation" method="post" action="{{ url_for('handle_registration_data') }}" novalidate> 
         <div class="row g-3">
           <div class="col-sm-6">
             <label for="athlete_firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="John" value="" required>
+            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="John" value="" required>
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
@@ -40,7 +40,7 @@ new users to create an account to login. -->
 
           <div class="col-sm-6">
             <label for="athlete_lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Smith" value="" required>
+            <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Smith" value="" required>
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -50,7 +50,7 @@ new users to create an account to login. -->
             <label for="username" class="form-label">Username</label>
             <div class="input-group has-validation">
               <span class="input-group-text">@</span>
-              <input type="text" class="form-control" id="username" placeholder="Username" required>
+              <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="" required>
             <div class="invalid-feedback">
                 Your username is required.
               </div>
@@ -58,24 +58,24 @@ new users to create an account to login. -->
           </div>
 
           <div class="col-sm-6">
-            <label for="athlete_email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
             <div class="invalid-feedback">
               Please enter a valid email address.
             </div>
           </div>
 
           <div class="col-sm-6">
-            <label for="athlete_phone_number" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="address" placeholder="XXX-XXX-XXXX" required>
+            <label for="phone_number" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="XXX-XXX-XXXX" required>
             <div class="invalid-feedback">
               Please enter valid phone number.
             </div>
           </div>
 
           <div class="col-sm-6">
-            <label for="athlete_birthdate" class="form-label">Birthday</label>
-            <input type="text" class="form-control" id="address" placeholder="mm/dd/yyyy" required>
+            <label for="birthdate" class="form-label">Birthday</label>
+            <input type="text" class="form-control" name="birthdate" id="birthdate" placeholder="mm/dd/yyyy" required>
             <i class="fas fa-calendar-alt"></i>
             <div class="invalid-feedback">
               Please enter valid date in the mm/dd/yyyy format.
@@ -84,7 +84,7 @@ new users to create an account to login. -->
 
           <div class="col-sm-6">
             <label for="athlete_address" class="form-label">Address</label>
-            <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+            <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required>
             <div class="invalid-feedback">
               Please enter your address.
             </div>
@@ -92,12 +92,12 @@ new users to create an account to login. -->
 
           <div class="col-sm-6">
             <label for="athlete_address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment or suite">
           </div>
 
           <div class="col-md-5">
             <label for="athlete_city" class="form-label">State</label>
-            <input type="text" class="form-control" id="city" placeholder="City">
+            <input type="text" class="form-control" name="city" id="city" placeholder="City">
             <div class="invalid-feedback">
               Please select a valid city name.
             </div>
@@ -105,7 +105,7 @@ new users to create an account to login. -->
 
           <div class="col-md-4">
             <label for="athlete_state" class="form-label">State</label>
-            <select class="form-select" id="state" required>
+            <select class="form-select" name="state" id="state" required>
               <option value="">Choose...</option>
               <option value="Alabama">Alabama</option>
               <option value="Alaska">Alaska</option>
@@ -166,7 +166,7 @@ new users to create an account to login. -->
 
           <div class="col-md-3">
             <label for="athlete_zip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="12345" required>
+            <input type="text" class="form-control" name="zip" id="zip" placeholder="12345" required>
             <div class="invalid-feedback">
               Zip code required.
             </div>
@@ -180,47 +180,47 @@ new users to create an account to login. -->
           <div class="row g-3">
             
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="qb_event">
+          <input class="form-check-input" type="radio" name="event" id="qb_event" value="qb_event">
   <label class="form-check-label" for="flexRadioDefault1">Quarterback </label>
         </div>
 
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="hb_rb_event">
+          <input class="form-check-input" type="radio" name="event" id="hb_rb_event" value="hb_rb_event">
   <label class="form-check-label" for="flexRadioDefault1">Halfback/Running Back</label>
         </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="wr_event">
+                  <input class="form-check-input" type="radio" name="event" id="wr_event" value="wr_event">
                   <label class="form-check-label" for="flexRadioDefault1">Wide Reciever </label>
         </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="te_event">
+                  <input class="form-check-input" type="radio" name="event" id="te_event" value="te_event">
                   <label class="form-check-label" for="flexRadioDefault1">Tight End </label>
         </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="cb_db_event">
+                  <input class="form-check-input" type="radio" name="event" id="cb_db_event" value="cb_db_event">
                   <label class="form-check-label" for="flexRadioDefault1">Corner Back/Defensive Back </label>
         </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="lb_event">
+                  <input class="form-check-input" type="radio" name="event" id="lb_event" value="lb_event">
                   <label class="form-check-label" for="flexRadioDefault1">Linebacker </label>
         </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="ol_event">
+                  <input class="form-check-input" type="radio" name="event" id="ol_event" value="ol_event">
                   <label class="form-check-label" for="flexRadioDefault1">Offensive Line </label>
         </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="dl_event">
+                  <input class="form-check-input" type="radio" name="event" id="dl_event" value="dl_event">
                   <label class="form-check-label" for="flexRadioDefault1">Defensive Line </label>
         </div>
 
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="k_p_event">
+                  <input class="form-check-input" type="radio" name="event" id="k_p_event" value="k_p_event">
                   <label class="form-check-label" for="flexRadioDefault1">Kicker/Punter </label>
         </div>
       </div>
@@ -235,7 +235,7 @@ new users to create an account to login. -->
 
         <div class="col-sm-6">
           <label for="ec_firstName" class="form-label">First name</label>
-          <input type="text" class="form-control" id="ec_firstname" placeholder="First name" value="" required>
+          <input type="text" class="form-control" name="ec_firstname" id="ec_firstname" placeholder="First name" value="ec_firstName" required>
           <div class="invalid-feedback">
             Valid first name is required.
           </div>
@@ -243,7 +243,7 @@ new users to create an account to login. -->
 
         <div class="col-sm-6">
           <label for="ec_lastName" class="form-label">Last name</label>
-          <input type="text" class="form-control" id="ec_lastname" placeholder="Last name" value="" required>
+          <input type="text" class="form-control" name ="ec_lastname" id="ec_lastname" placeholder="Last name" value="ec_lastname" required>
           <div class="invalid-feedback">
             Valid last name is required.
           </div>
@@ -251,7 +251,7 @@ new users to create an account to login. -->
 
         <div class="col-sm-6">
           <label for="ec_phone_number" class="form-label">Phone Number</label>
-          <input type="text" class="form-control" id="ec_phone_number" placeholder="XXX-XXX-XXXX" required>
+          <input type="text" class="form-control" name="ec_phone_number" id="ec_phone_number" placeholder="XXX-XXX-XXXX" value="ec_phone_number" required>
           <div class="invalid-feedback">
             Please enter valid phone number.
           </div>
@@ -259,7 +259,7 @@ new users to create an account to login. -->
 
         <div class="col-sm-6">
           <label for="relationship_to_athlete" class="form-label">Relationship to Athlete</label>
-          <select class="form-select" id="relationship_to_athlete" required>
+          <select class="form-select" name="relationship_to_athlete" id="relationship_to_athlete" required>
           <option value="">Choose...</option>
            <option value="Mother">Mother</option>
            <option value="Father">Father</option>
@@ -274,7 +274,9 @@ new users to create an account to login. -->
 
 </br>
       <div class="d-grid gap-2 col-6 mx-auto">
-      <button type="submit" class="btn btn-primary btn-lg" name="button"  href={{url_for('home_page')}}>Submit</button>
+      <!-- <button type="submit" class="btn btn-primary btn-lg" name="button"  href={{url_for('home_page')}}>Submit</button>
+      <button type="submit" class="btn btn-primary btn-lg" name="button"  href={{url_for('home_page')}}>Submit</button> -->
+      <button type="submit" class="btn btn-primary btn-lg" name="button">Submit</button>
       </div>
 
 

@@ -16,10 +16,107 @@ from wtforms import ValidationError
 from flask_wtf.file import FileField, FileAllowed
 from werkzeug.security import generate_password_hash, check_password_hash
 from wsgiref.simple_server import make_server
+import pyodbc
+import pandas as pd
+
+
+def connectionClose():
+    '''Close the connection to the database'''
+    conn.commit()
+    conn.close()
+
+
+def databaseConnect():
+    '''Creates a connection to the database
+    can be accessed globally'''
+    global conn
+    # You can replace the server name with outward TCP IP address to deploy globally
+    conn = pyodbc.connect('Driver={SQL Server};'
+                          'Server=DESKTOP-62CDVC6\SQLEXPRESS01;'
+                          'Database=MDFootballCamp;'
+                          'UID=tyler;'
+                          'PWD=password;')
+
+
+def insertToUsers():
+    insertUser = str(
+        " INSERT INTO [dbo].[Users] ([username] ,[password] ,[staffuser])" + "VALUES" + somrStriungVariable)
+
+
+def insertToRegDB(regValue):
+
+    # valueLS = str(" ('Dhaval', 'Patel', 'dpatel', 'dpatel@gmail.com', '2676165627', '2010-01-01', '5111 Westland', '', 'Arbutus', 'Maryland', '21226', 'qb_event', 'Tyler', 'Smith', '1234567890', 'Friend','No', 'password') ")
+
+    insert_db = str(" INSERT INTO [dbo].[MDFOOTBALLCAMP] " +
+                    " ([firstname] ,[lastname] ,[username] ,[email] ,[phone_number] ,[birthdate] ,[address] ,[address2] " +
+                    " ,[city] ,[state] ,[zip] ,[event] ,[ec_firstname] ,[ec_lastname] ,[ec_phone_number] ,[relationship_to_athlete] " +
+                    " ) VALUES " + regValue)
+
+    databaseConnect()
+    conn.execute(insert_db)
+    connectionClose()
 
 
 app = Flask(__name__)
 app.debug = True
+
+
+@app.route('/handle_registration_data', methods=['POST'])
+def handle_registration_data():
+    # projectpath = request.form['firstName']
+
+    regValue = str("('" + request.form['firstName'] + "', " +
+                   "'" + request.form['lastName'] + "', " +
+                   "'" + request.form['username'] + "', " +
+                   "'" + request.form['email'] + "', " +
+                   "'" + request.form['phone_number'] + "', " +
+                   "'" + request.form['birthdate'] + "', " +
+                   "'" + request.form['address'] + "', " +
+                   "'" + request.form['address2'] + "', " +
+                   "'" + request.form['city'] + "', " +
+                   "'" + request.form['state'] + "', " +
+                   "'" + request.form['zip'] + "', " +
+                   "'" + request.form['event'] + "', " +
+                   "'" + request.form['ec_firstname'] + "', " +
+                   "'" + request.form['ec_lastname'] + "', " +
+                   "'" + request.form['ec_phone_number'] + "', " +
+                   "'" + request.form['relationship_to_athlete'] + "') "
+                   # "'" + request.form['password'] + "') "
+                   )
+
+    insertToRegDB(regValue)
+
+    return render_template('home_page.html')
+
+
+@app.route('/handle_signup_data', methods=['POST'])
+def handle_registration_data():
+    # projectpath = request.form['firstName']
+
+    # valueLS = str(" ('Dhaval', 'Patel', 'dpatel', 'dpatel@gmail.com', '2676165627', '2010-01-01', '5111 Westland', '', 'Arbutus', 'Maryland', '21226', 'qb_event', 'Tyler', 'Smith', '1234567890', 'Friend') ")
+
+    value = str("('" + request.form['firstName'] + "', " +
+                "'" + request.form['lastName'] + "', " +
+                "'" + request.form['username'] + "', " +
+                "'" + request.form['email'] + "', " +
+                "'" + request.form['phone_number'] + "', " +
+                "'" + request.form['birthdate'] + "', " +
+                "'" + request.form['address'] + "', " +
+                "'" + request.form['address2'] + "', " +
+                "'" + request.form['city'] + "', " +
+                "'" + request.form['state'] + "', " +
+                "'" + request.form['zip'] + "', " +
+                "'" + request.form['event'] + "', " +
+                "'" + request.form['ec_firstname'] + "', " +
+                "'" + request.form['ec_lastname'] + "', " +
+                "'" + request.form['ec_phone_number'] + "', " +
+                "'" + request.form['relationship_to_athlete'] + "') "
+                # "'" + request.form['password'] + "') "
+                )
+
+    insertToDB(value)
+
+    return render_template('home_page.html')
 
 
 @app.route('/', methods=["POST", "GET"])
@@ -88,7 +185,7 @@ def update_password():
     return render_template('update_password.html')
 
 
-@app.route("/register_for_camp", methods=["POST", "GET"])
+@app.route("/register_for_camp", methods=["GET", "POST"])
 def register_for_camp():
     """Serving the Registration.html webpage for user to sign up in case
     if they are not logged in or do not have access

@@ -29,6 +29,7 @@ submit = SubmitField('Sign-Up!')
 
 def validate_username(self, field):
     # Check if not None for that username!
+    # print(field)
     if User.query.filter_by(username=field.data).first():
         raise ValidationError('Sorry, that username is taken!')
 
