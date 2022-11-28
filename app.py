@@ -32,15 +32,37 @@ def databaseConnect():
     global conn
     # You can replace the server name with outward TCP IP address to deploy globally
     conn = pyodbc.connect('Driver={SQL Server};'
+                          # You replace this line of code with your own server name "Server=______"
                           'Server=DESKTOP-62CDVC6\SQLEXPRESS01;'
                           'Database=MDFootballCamp;'
                           'UID=tyler;'
                           'PWD=password;')
 
+# This handles the user signup
 
-def insertToUsers():
+
+def insertToUsersDB(userValue):
+
     insertUser = str(
-        " INSERT INTO [dbo].[Users] ([username] ,[password] ,[staffuser])" + "VALUES" + somrStriungVariable)
+        " INSERT INTO [dbo].[Users] ([username] ,[password] ,[staffuser])" + "VALUES" + userValue)
+
+    databaseConnect()
+    conn.execute(insertUser)
+    connectionClose()
+
+# This is the update password
+
+
+def updatePasswordToUsersDB(userValue):
+
+    insertUser = str(
+        " INSERT INTO [dbo].[Users] ([username] ,[password] ,[staffuser])" + "VALUES" + userValue)
+
+    databaseConnect()
+    conn.execute(insertUser)
+    connectionClose()
+
+# This handles the user registration
 
 
 def insertToRegDB(regValue):
@@ -61,9 +83,25 @@ app = Flask(__name__)
 app.debug = True
 
 
+@app.route('/handle_user_data', methods=['POST'])
+def handle_user_data():
+    # projectpath = request.form['firstName']
+
+    userValue = str("('" + request.form['username'] + "', " +
+                    "'" + request.form['password'] + "', " +
+                    "'No') "
+                    )
+
+    insertToUsersDB(userValue)
+
+    return render_template('home_page.html')
+
+
 @app.route('/handle_registration_data', methods=['POST'])
 def handle_registration_data():
     # projectpath = request.form['firstName']
+
+    # valueLS = str(" ('Dhaval', 'Patel', 'dpatel', 'dpatel@gmail.com', '2676165627', '2010-01-01', '5111 Westland', '', 'Arbutus', 'Maryland', '21226', 'qb_event', 'Tyler', 'Smith', '1234567890', 'Friend') ")
 
     regValue = str("('" + request.form['firstName'] + "', " +
                    "'" + request.form['lastName'] + "', " +
@@ -85,36 +123,6 @@ def handle_registration_data():
                    )
 
     insertToRegDB(regValue)
-
-    return render_template('home_page.html')
-
-
-@app.route('/handle_signup_data', methods=['POST'])
-def handle_registration_data():
-    # projectpath = request.form['firstName']
-
-    # valueLS = str(" ('Dhaval', 'Patel', 'dpatel', 'dpatel@gmail.com', '2676165627', '2010-01-01', '5111 Westland', '', 'Arbutus', 'Maryland', '21226', 'qb_event', 'Tyler', 'Smith', '1234567890', 'Friend') ")
-
-    value = str("('" + request.form['firstName'] + "', " +
-                "'" + request.form['lastName'] + "', " +
-                "'" + request.form['username'] + "', " +
-                "'" + request.form['email'] + "', " +
-                "'" + request.form['phone_number'] + "', " +
-                "'" + request.form['birthdate'] + "', " +
-                "'" + request.form['address'] + "', " +
-                "'" + request.form['address2'] + "', " +
-                "'" + request.form['city'] + "', " +
-                "'" + request.form['state'] + "', " +
-                "'" + request.form['zip'] + "', " +
-                "'" + request.form['event'] + "', " +
-                "'" + request.form['ec_firstname'] + "', " +
-                "'" + request.form['ec_lastname'] + "', " +
-                "'" + request.form['ec_phone_number'] + "', " +
-                "'" + request.form['relationship_to_athlete'] + "') "
-                # "'" + request.form['password'] + "') "
-                )
-
-    insertToDB(value)
 
     return render_template('home_page.html')
 
